@@ -1,1 +1,14 @@
-http://localhost:3000/books
+http://localhost:3000
+
+###
+
+http://localhost:3000/books?minPrice=200&maxPrice=300
+
+
+###
+
+http://localhost:3000/books/0baed8b0-65f6-4211-9f50-aee38918413a
+
+
+### bad book id
+http://localhost:3000/books/123
