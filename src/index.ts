@@ -2,6 +2,7 @@ import { Hono } from 'hono'
 import { getBookValidator } from './schemas/get-books-schema';
 import { getBooksByPrice, getBookById } from './db/queries';
 import { getBookByIdValidator } from './schemas/get-book-by-id-schema';
+import { UUID } from 'crypto';
 
 const app = new Hono()
 
@@ -18,7 +19,7 @@ app.get('/books', getBookValidator, (c) => {
 app.get('/books/:bookId', getBookByIdValidator, (c) => {
   const { bookId } = c.req.valid('param');
 
-  const book = getBookById(bookId);
+  const book = getBookById(bookId as UUID);
 
   if (!book) {
     return c.json({ message: 'No book found' }, 404);
