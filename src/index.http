@@ -24,3 +24,7 @@ content-type: application/json
   "genre": "Fiction",
   "price": 11.50
 }
+
+
+### decoy
+http://localhost:3000/fake/1
