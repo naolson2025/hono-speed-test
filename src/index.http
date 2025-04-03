@@ -12,3 +12,15 @@ http://localhost:3000/books/0baed8b0-65f6-4211-9f50-aee38918413a
 
 ### bad book id
 http://localhost:3000/books/123
+
+
+### POST a book
+POST http://localhost:3000/books
+content-type: application/json
+
+{
+  "title": "junk",
+  "author": "F. Scott Fitzgerald",
+  "genre": "Fiction",
+  "price": 11.50
+}

@@ -1,8 +1,9 @@
 import { Hono } from 'hono'
 import { getBookValidator } from './schemas/get-books-schema';
-import { getBooksByPrice, getBookById } from './db/queries';
+import { getBooksByPrice, getBookById, createBook } from './db/queries';
 import { getBookByIdValidator } from './schemas/get-book-by-id-schema';
 import { UUID } from 'crypto';
+import { createBookValidator } from './schemas/create-book-schema';
 
 const app = new Hono()
 
@@ -26,6 +27,14 @@ app.get('/books/:bookId', getBookByIdValidator, (c) => {
   }
 
   return c.json(book);
+})
+
+app.post('/books', createBookValidator, (c) => {
+  const book = c.req.valid('json');
+
+  const createdBook = createBook(book);
+
+  return c.json(createdBook, 201);
 })
 
 export default app
