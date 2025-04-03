@@ -3,11 +3,16 @@
   "scripts": {
     "dev": "bun run --hot src/index.ts",
     "build": "bun build ./src/index.ts --outdir ./dist --target bun",
-    "start": "bun run dist/index.js"
+    "start": "bun run dist/index.js",
+    "benchmark:1": "autocannon -c 100 -d 5 -p 10 http://localhost:3000",
+    "benchmark:2": "autocannon -c 100 -d 5 -p 10 http://localhost:3000/books?minPrice=200",
+    "benchmark:3": "autocannon -c 100 -d 5 -p 10 http://localhost:3000/books/0de992c4-6f81-4c59-bb58-020bb5029a4b",
+    "benchmark:4": "autocannon -c 100 -d 5 -p 10 -m POST -H 'content-type=application/json' -b '{\"title\": \"benchmark\", \"author\": \"mr bench\", \"genre\": \"benchy\", \"price\": 10}' http://localhost:3000/books"
   },
   "dependencies": {
     "@faker-js/faker": "^9.6.0",
     "@hono/zod-validator": "^0.4.3",
+    "autocannon": "^8.0.0",
     "hono": "^4.7.5",
     "zod": "^3.24.2"
   },
