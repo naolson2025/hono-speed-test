@@ -32,7 +32,6 @@ export const schema = z
   .strict();
 
 export const createBookValidator = zValidator('json', schema, (result, c) => {
-  console.log(result);
   if (!result.success) {
     return c.json(
       {
