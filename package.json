@@ -4,10 +4,10 @@
     "dev": "bun run --hot src/index.ts",
     "build": "bun build ./src/index.ts --outdir ./dist --target bun",
     "start": "bun run dist/index.js",
-    "benchmark:1": "autocannon -c 100 -d 5 -p 10 http://localhost:3000",
-    "benchmark:2": "autocannon -c 100 -d 5 -p 10 http://localhost:3000/books?minPrice=200",
-    "benchmark:3": "autocannon -c 100 -d 5 -p 10 http://localhost:3000/books/73cb280c-f02c-48e7-ae41-d9cd16061d79",
-    "benchmark:4": "autocannon -c 100 -d 5 -p 10 -m POST -H 'content-type=application/json' -b '{\"title\": \"benchmark\", \"author\": \"mr bench\", \"genre\": \"benchy\", \"price\": 10}' http://localhost:3000/books"
+    "benchmark:1": "autocannon -c 100 -d 5 http://localhost:3000",
+    "benchmark:2": "autocannon -c 100 -d 5 http://localhost:3000/books?minPrice=200",
+    "benchmark:3": "autocannon -c 100 -d 5 http://localhost:3000/books/73cb280c-f02c-48e7-ae41-d9cd16061d79",
+    "benchmark:4": "autocannon -c 100 -d 5 -m POST -H 'content-type=application/json' -b '{\"title\": \"benchmark\", \"author\": \"mr bench\", \"genre\": \"benchy\", \"price\": 10}' http://localhost:3000/books"
   },
   "dependencies": {
     "@hono/zod-validator": "^0.4.3",
